@@ -1,0 +1,19 @@
+# ContingentAI - MINIMAL Requirements
+# Just the essentials to get the app running!
+
+# Core Framework (Required)
+Flask
+Flask-SQLAlchemy
+python-dotenv
+
+# Data & Charts (Required for dashboard)
+pandas
+numpy
+plotly
+
+# Forms (Required)
+Flask-WTF
+WTForms
+email-validator
+
+# Everything else is optional for now

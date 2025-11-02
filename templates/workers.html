@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}Workers - ContingentAI{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h2 class="fw-bold">
+                <i class="fas fa-users text-primary me-2"></i>
+                Active Workers
+            </h2>
+            <p class="text-muted">Manage your contingent and full-time workforce</p>
+        </div>
+        <div class="col-md-4 text-end">
+            <button class="btn btn-primary" disabled>
+                <i class="fas fa-plus me-2"></i>Add Worker
+            </button>
+            <button class="btn btn-outline-secondary" disabled>
+                <i class="fas fa-download me-2"></i>Export
+            </button>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Worker Type</label>
+                            <select class="form-select" id="filterWorkerType">
+                                <option value="">All Types</option>
+                                <option value="fte">Full-Time Employee</option>
+                                <option value="contractor">Contractor</option>
+                                <option value="eor">EOR Worker</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Department</label>
+                            <select class="form-select" id="filterDepartment">
+                                <option value="">All Departments</option>
+                                <!-- Will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Search</label>
+                            <input type="text" class="form-control" id="searchWorkers" placeholder="Search by name or email...">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button class="btn btn-secondary w-100" onclick="resetFilters()">
+                                <i class="fas fa-redo me-2"></i>Reset Filters
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workers Table -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Worker ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Type</th>
+                                    <th>Department</th>
+                                    <th>Job Title</th>
+                                    <th class="text-end">Rate/Salary</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if workers %}
+                                    {% for worker in workers %}
+                                    <tr>
+                                        <td><strong>{{ worker.worker_id }}</strong></td>
+                                        <td>{{ worker.first_name }} {{ worker.last_name }}</td>
+                                        <td><small>{{ worker.email }}</small></td>
+                                        <td>
+                                            {% if worker.worker_type == 'fte' %}
+                                                <span class="badge bg-success">FTE</span>
+                                            {% elif worker.worker_type == 'contractor' %}
+                                                <span class="badge bg-info">Contractor</span>
+                                            {% elif worker.worker_type == 'eor' %}
+                                                <span class="badge bg-warning">EOR</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ worker.department.name if worker.department else 'N/A' }}</td>
+                                        <td>{{ worker.job_title }}</td>
+                                        <td class="text-end">
+                                            {% if worker.hourly_rate %}
+                                                ${{ "{:,.2f}".format(worker.hourly_rate) }}/hr
+                                            {% elif worker.annual_salary %}
+                                                ${{ "{:,.0f}".format(worker.annual_salary) }}/yr
+                                            {% else %}
+                                                N/A
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <span class="badge {% if worker.status == 'active' %}bg-success{% else %}bg-secondary{% endif %}">
+                                                {{ worker.status | capitalize }}
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-sm btn-outline-primary" disabled>
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-secondary" disabled>
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="9" class="text-center py-5">
+                                            <i class="fas fa-users fa-3x text-muted mb-3"></i>
+                                            <p class="text-muted">No workers found. Run the seed script to populate sample data.</p>
+                                            <code>flask seed-db</code>
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function resetFilters() {
+    document.getElementById('filterWorkerType').value = '';
+    document.getElementById('filterDepartment').value = '';
+    document.getElementById('searchWorkers').value = '';
+}
+
+// TODO: Add filtering logic here
+</script>
+{% endblock %}
