@@ -24,12 +24,6 @@ ContingentAI addresses the challenges organizations face when managing large-sca
 
 ---
 
-## 🚀 Live Demo
-
-**[View Dashboard Screenshots](#screenshots)** | **[Explore Features](#features)**
-
----
-
 ## 🛠️ Tech Stack
 
 **Backend:**
