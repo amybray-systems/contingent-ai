@@ -258,7 +258,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 About
 
-Built by **Amy Bray** | [LinkedIn](https://www.linkedin.com/in/your-linkedin) | [Portfolio](https://your-portfolio.com)
+Built by **Amy Bray** | [LinkedIn](https://www.linkedin.com/in/amybrayphr/) | [Portfolio](https://amybray-systems.github.io/portfolio/)
 
 **Background:** Developed based on real-world experience in workforce operations, including:
 - Managing 1,000+ contractors across 20+ countries at Upwork
