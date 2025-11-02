@@ -168,10 +168,11 @@ http://127.0.0.1:5000
 *Comprehensive worker directory with filtering, search, and detailed information on contractors, FTEs, and EOR workers.*
 
 ### AI Assistant (In Development)
+
 <img src="docs/images/ai-assistant.png" alt="AI Assistant" style="max-width: 600px; width: 100%;">
 
 *Conversational interface for natural language queries about workforce data and intelligent recommendations.*
----
+
 
 ## 🗂️ Project Structure
 
