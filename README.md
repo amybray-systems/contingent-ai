@@ -169,7 +169,7 @@ http://127.0.0.1:5000
 
 ### AI Assistant (In Development)
 
-<img src="docs/images/ai-assistant.png" alt="AI Assistant" style="max-width: 600px; width: 100%;">
+<img src="docs/images/ai-assistant.png" alt="AI Assistant" style="max-width: 500px; width: 100%;">
 
 *Conversational interface for natural language queries about workforce data and intelligent recommendations.*
 
