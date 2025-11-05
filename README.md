@@ -269,7 +269,7 @@ flask seed-db
 
 ## 🤝 Contributing
 
-This is currently a portfolio/demonstration project. If you're interested in contributing or have suggestions, feel free to open an issue or reach out!
+This is currently a portfolio/demonstration project. If you're interested in contributing or have suggestions, feel free to reach out!
 
 ---
 
