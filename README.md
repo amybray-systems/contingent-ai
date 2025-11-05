@@ -158,12 +158,12 @@ http://127.0.0.1:5000
 ## 📸 Screenshots
 
 ### Analytics Dashboard
-<img src="docs/images/dashboard.png" alt="Analytics Dashboard" style="max-width: 600px; width: 100%;">
+<img src="docs/images/dashboard.png" alt="Analytics Dashboard" style="max-width: 500px; width: 100%;">
 
 *Real-time workforce metrics with interactive Chart.js visualizations showing headcount by department, worker type distribution, and key performance indicators.*
 
 ### Worker Management
-<img src="docs/images/workers.png" alt="Workers List" style="max-width: 600px; width: 100%;">
+<img src="docs/images/workers.png" alt="Workers List" style="max-width: 500px; width: 100%;">
 
 *Comprehensive worker directory with filtering, search, and detailed information on contractors, FTEs, and EOR workers.*
 
